@@ -19,3 +19,10 @@ jobs:
       - name: MY second step
         run: |
           echo "second !"
+  secondJob:
+    name: "display the second"
+    runs-on: ubuntu-latest
+    steps:
+      - name: My first step in the second job
+        run: |
+          echo "First second"
