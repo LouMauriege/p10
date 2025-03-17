@@ -7,6 +7,7 @@ jobs:
     steps:
       - run: echo "The job is triggered by ${{ github.event_name }}"
       - name: Liste file in repository
-        run: |
+        uses: actions/Echo message
+      - run: |
           ls ${{ github.workspace }}
       - run: echo "Job is ${{ job.status }}"
