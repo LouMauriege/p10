@@ -35,3 +35,11 @@ jobs:
     steps:
       - name: Output from thirdjob
         run: echo "Hello jobname is over"
+  forthJob:
+    name: "After job 1"
+    runs-on: ubuntu-latest
+    needs:
+      - jobname
+    steps:
+      - name: Output from forthjob 
+        run: echo "Hello jobname is over"
