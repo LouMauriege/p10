@@ -62,6 +62,8 @@ jobs:
       with:
         node-version: 22.x
 
-    - run: npm ci
-
-    - run: npm test
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run frontend tests
+      run: npm test -- --browsers=ChromeHeadless
