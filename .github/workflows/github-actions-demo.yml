@@ -54,7 +54,6 @@ jobs:
         working-directory: front
 
     steps:
-    - run: ls -la
     - name: Checkout repository
       uses: actions/checkout@v4
 
