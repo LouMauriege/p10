@@ -43,3 +43,20 @@ jobs:
     steps:
       - name: Output from forthjob 
         run: echo "Hello jobname is over"
+
+  test:
+    name: Test the frontend
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+    steps:
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: npm
+    - run: npm ci
+    - run: npm test
