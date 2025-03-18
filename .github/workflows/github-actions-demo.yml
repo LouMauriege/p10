@@ -44,7 +44,7 @@ jobs:
       - name: Output from forthjob 
         run: echo "Hello jobname is over"
 
-  frontend-tests:
+  frontend-test:
     name: Frontend - Testing step
 
     runs-on: ubuntu-latest
@@ -67,6 +67,15 @@ jobs:
     
     - name: Run frontend tests
       run: npm test -- --watch=false --browsers=ChromeHeadless --code-coverage
+  
+  frontend-next:
+    name: 'After tests'
+    runs-on: ubuntu-latest
+    needs: 
+      - frontend-test
+    steps:
+      - name: Output from forthjob 
+        run: echo "Hello jobname is over"
 
   backend-test:
     name: Backend - Testing step
@@ -93,4 +102,11 @@ jobs:
     - name: Run backend tests
       run: mvn clean test
 
-      
+  backend-next:
+    name: 'After tests'
+    runs-on: ubuntu-latest
+    needs: 
+      - backend-test
+    steps:
+      - name: Output from forthjob 
+        run: echo "Hello jobname is over"
