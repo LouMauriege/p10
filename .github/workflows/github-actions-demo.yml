@@ -44,8 +44,8 @@ jobs:
       - name: Output from forthjob 
         run: echo "Hello jobname is over"
 
-  test:
-    name: Test the frontend
+  frontend-tests:
+    name: Frontend - Testing step
 
     runs-on: ubuntu-latest
 
@@ -60,10 +60,34 @@ jobs:
     - name: Use Node.js 22.x
       uses: actions/setup-node@v4
       with:
-        node-version: 22.x
+        node-version: '22.x'
 
     - name: Install dependencies
       run: npm ci
     
     - name: Run frontend tests
       run: npm test -- --watch=false --browsers=ChromeHeadless --code-coverage
+
+  backend-test:
+    name: Backend - Testing step
+
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: back
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Java (JDK)
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+
+    - name: Install Maven dependencies
+      run: mvn clean install
+
+      
