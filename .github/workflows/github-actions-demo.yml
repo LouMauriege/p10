@@ -55,6 +55,9 @@ jobs:
   backend-next:
     name: 'Build an Sonar analyze'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: back
     needs: 
       - backend-test
     steps:
