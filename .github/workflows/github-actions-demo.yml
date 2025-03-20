@@ -40,17 +40,17 @@ jobs:
       run:
         working-directory: back
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Setup Java (JDK)
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'temurin'
-          java-version: '11'
-      - name: Install Maven dependencies
-        run: mvn clean install
-      - name: Run backend tests
-        run: mvn clean test
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Setup Java (JDK)
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+    - name: Install Maven dependencies
+      run: mvn clean install
+    - name: Run backend tests
+      run: mvn clean test
 
   backend-next:
     name: 'Build an Sonar analyze'
