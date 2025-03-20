@@ -13,7 +13,7 @@ jobs:
       run:
         working-directory: front
     steps:
-      - name: Checkout repository
+      - name: Checkout repositor
         uses: actions/checkout@v4
       - name: Use Node.js 22.x
         uses: actions/setup-node@v4
@@ -24,14 +24,21 @@ jobs:
       - name: Run frontend tests
         run: npm test -- --watch=false --browsers=ChromeHeadless --code-coverage
   
-  frontend-next:
-    name: 'After tests'
-    runs-on: ubuntu-latest
+  frontend-sonar:
+    name: 'Frontend sonar analyze'
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: front 
     needs: 
       - frontend-test
     steps:
-      - name: Output from forthjob 
-        run: echo "Hello jobname is over"
+      - name: Checkout repositor
+        uses: actions/checkout@v4
+      - name: Sonar scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   backend-test:
     name: Backend - Testing step
@@ -52,8 +59,8 @@ jobs:
       - name: Run backend tests
         run: mvn clean test
 
-  backend-next:
-    name: 'Build an Sonar analyze'
+  backend-sonar:
+    name: 'Backend sonar analyze'
     runs-on: ubuntu-latest
     defaults:
       run:
