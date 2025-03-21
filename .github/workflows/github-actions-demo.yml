@@ -20,6 +20,7 @@ jobs:
         with:
           node-version: '22.x'
           cache: 'npm'
+          cache-dependency-path: front/package-lock.json
       - name: Restore cached dependencies
         uses: actions/cache@v3
         with:
