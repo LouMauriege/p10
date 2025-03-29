@@ -34,7 +34,7 @@ jobs:
         run: npm test -- --watch=false --browsers=ChromeHeadless --code-coverage
   
   frontend-sonar:
-    name: 'Frontend sonar analyze'
+    name: 'Frontend - Sonar analyze'
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -52,6 +52,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONTEND }}
         with:
           projectBaseDir: front
+
 
   backend-test:
     name: Backend - Testing step
