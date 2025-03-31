@@ -7,7 +7,7 @@ on:
 jobs:
 
   frontend-test:
-    name: Frontend - Testing step
+    name: Frontend - Test coverage
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -36,7 +36,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: frontend-coverage
-          path: front/coverage/
+          path: ./front/coverage/
           retention-days: 30
   
   frontend-sonar:
@@ -85,7 +85,7 @@ jobs:
           tags: ${{ vars.DOCKERHUB_USERNAME }}/bobapp-frontend:latest
 
   backend-test:
-    name: Backend - Testing step
+    name: Backend - Test
     runs-on: ubuntu-latest
     defaults:
       run:
