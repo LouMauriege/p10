@@ -15,10 +15,8 @@
 	<description>L'application de joke par excellence !</description>
 	<properties>
 		<java.version>11</java.version>
-		<sonar.projectKey>bob-app-backend</sonar.projectKey>
-		<sonar.projectName>bob app backend</sonar.projectName>
-		<sonar.host.url>http://localhost:9000</sonar.host.url>
-		<sonar.token>sqp_86089c4b851b8e5c60f27285c2529c157b954765</sonar.token>
+		<sonar.organization>loumauriege</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
 		<dependency>
