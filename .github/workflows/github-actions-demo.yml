@@ -76,7 +76,7 @@ jobs:
         with:
           context: "{{defaultContext}}:front"
           push: true
-          tags: user/app:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/bobapp-frontend:latest
 
   backend-test:
     name: Backend - Testing step
