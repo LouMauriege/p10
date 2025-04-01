@@ -1,8 +1,14 @@
 name: Github Actions 
 
 on:
-  # on which type of events my workflow is triggered
   push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
 
 jobs:
 
